@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using Microsoft.Data.DataView;
@@ -18,8 +19,7 @@ namespace BinaryClassification
     {
         static readonly string _dataPath = Path.Combine(Environment.CurrentDirectory, "Data", "yelp_labelled.txt");
         static readonly string _modelPath = Path.Combine(Environment.CurrentDirectory, "Data", "Model.zip");
-
-        static string mongoURI = "mongodb://energy:1980abc$1@NUEVOEZALOR:27017/Energy";
+        static string mongoURI = ConfigurationManager.ConnectionStrings["mongoURI"].ConnectionString;
         static readonly MongoClient client = new MongoClient(mongoURI);
 
         static void Main(string[] args)
