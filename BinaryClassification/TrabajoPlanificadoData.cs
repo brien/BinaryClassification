@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BinaryClassification
 {
-    class TrabajoPlanificadoData
+    public class TrabajoPlanificadoData
     {
         [BsonIgnoreExtraElements]
         public class TrabajoPlanificadoPropuestaMongo
@@ -59,8 +59,21 @@ namespace BinaryClassification
             [LoadColumn(3)]
             public float RetribucionesPorFechaHora { get; set; }
 
+            [ColumnName("Label")]
             [LoadColumn(4)]
             public bool Valorable { get; set; }
+        }
+
+        public class TrabajoPlanificadoPrediction
+        {
+            [ColumnName("PredictedLabel")]
+            public bool Prediction { get; set; }
+
+            // [ColumnName("Probability")]
+            public float Probability { get; set; }
+
+            //  [ColumnName("Score")]
+            public float Score { get; set; }
         }
     }
 }
